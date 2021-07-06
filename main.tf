@@ -78,7 +78,7 @@ resource "aws_iam_role_policy_attachment" "AmazonEC2ContainerRegistryReadOnly" {
 
 resource "aws_eks_node_group" "node" {
   cluster_name    = aws_eks_cluster.aws_eks.name
-  node_group_name = "node_tuto"
+  node_group_name = "ankit_test_nodes"
   node_role_arn   = aws_iam_role.eks_nodes.arn
   subnet_ids      = module.vpc.private_subnets
 
@@ -98,6 +98,8 @@ resource "aws_eks_node_group" "node" {
     aws_iam_role_policy_attachment.AmazonEC2ContainerRegistryReadOnly,
   ]
 }
+
+
 
 output "eks_cluster_endpoint" {
   value = aws_eks_cluster.aws_eks.endpoint
